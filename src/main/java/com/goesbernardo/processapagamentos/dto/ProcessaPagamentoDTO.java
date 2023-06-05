@@ -2,8 +2,10 @@ package com.goesbernardo.processapagamentos.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.goesbernardo.processapagamentos.domain.FormaPagamento;
 import com.goesbernardo.processapagamentos.domain.Status;
+import com.goesbernardo.processapagamentos.domain.TipoBandeira;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +15,8 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-public class ProcessaPagamentoPagamentoDTO implements Serializable {
+@JsonSerialize
+public class ProcessaPagamentoDTO implements Serializable {
 
     @NotNull
     @NotEmpty
@@ -28,6 +31,8 @@ public class ProcessaPagamentoPagamentoDTO implements Serializable {
     @NotEmpty
     @JsonEnumDefaultValue
     private FormaPagamento formaPagamento;
+    @JsonEnumDefaultValue
+    private TipoBandeira tipoBandeira;
 
 
 
